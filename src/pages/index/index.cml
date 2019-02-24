@@ -1,0 +1,63 @@
+<template>
+  <page title="chameleon">
+    <scroller height="{{-1}}">
+      <view class="scroller-wrap">
+        <demo-com title="{{title}}" image-src="{{chameleonSrc}}"></demo-com>
+      </view>
+      <my-component name="{{title}}" c-bind:onshow="showHandle"></my-component>
+    </scroller>
+  </page>
+</template>
+
+<script>
+  import myUtil from '../../components/myUtil/myUtil.interface'
+
+  class Index {
+    data = {
+      title: "chameleon",
+      chameleonSrc: require('../../assets/images/chameleon.png')
+    };
+
+    methods = {
+      showHandle(val){
+        console.log(val,'val');
+
+      }
+    };
+
+    created() {
+      console.log(myUtil.getMsg('test'))
+    }
+  }
+
+  export default new Index();
+
+</script>
+<style>
+  .scroller-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+</style>
+<script cml-type="json">
+  {
+    "base"
+  :
+    {"usingComponents":{"demo-com":"/components/demo-com/demo-com","my-component":"/components/my-component/my-component"}},
+    "wx"
+  :
+    {
+      "navigationBarTitleText"
+    :
+      "index",
+        "backgroundTextStyle"
+    :
+      "dark",
+        "backgroundColor"
+    :
+      "#E2E2E2"
+    }
+  }
+</script>

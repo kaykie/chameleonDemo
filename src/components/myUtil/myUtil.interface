@@ -1,0 +1,33 @@
+<script cml-type="interface">
+interface MyUtilInterface {
+  getMsg(msg: String): String;
+}
+
+</script>
+
+<script cml-type="web">
+
+class Method implements MyUtilInterface {
+  getMsg(msg) {
+    return 'EzWeb:' + msg;
+  }
+}
+
+export default new Method();
+</script>
+
+
+<script cml-type="wx">
+
+class Method implements MyUtilInterface {
+  getMsg(msg) {
+    return 'EzWx:' + msg;
+  }
+}
+
+export default new Method();
+</script>
+
+
+
+
